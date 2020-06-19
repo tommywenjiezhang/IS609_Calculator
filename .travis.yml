@@ -1,10 +1,11 @@
 language: python
 python:
     - "3.8"
-install:
-    - pip install -r requirements.txt
+services:
+    - docker
+before_install:
+    - docker pull tommywenjiezhang/python-calculator
 script:
-    - cd ./project
-    - coverage run -m unittest
+    - docker run tommywenjiezhang/python-calculator
 after_success:
     - bash <(curl -s https://codecov.io/bash)

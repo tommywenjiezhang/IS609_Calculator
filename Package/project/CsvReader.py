@@ -1,7 +1,9 @@
 import csv
+import os
 class CsvReader:
     def __init__(self,filename):
-        self.filename = filename
+        print(f'file directory: {os.path.abspath(os.path.join("./Package/tests",filename))}')
+        self.filename = os.path.abspath(os.path.join('./Package/tests',filename))
     def readFile(self):
         newList = list()
         with open(self.filename,mode='r') as csv_file:
